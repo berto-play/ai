@@ -165,7 +165,7 @@ All four subjects are referenced by code names you choose at setup. These are:
 - Synced to your **private** GitHub repo inside `data.json`
 - Never present in the public source code
 
-The app source code (`berto-play/ai`) is public. The data repo (`berto-play/ai-log-data`) is private. No real names appear anywhere in the public repo.
+The app source code (`berto-play/ai`) is public. The data repo (`berto-play/berto-log-data`) is private. No real names appear anywhere in the public repo.
 
 ---
 
@@ -192,6 +192,6 @@ ai/                    ← public repo (GitHub Pages)
 ├── manifest.json      ← PWA manifest
 └── icon.svg           ← app icon
 
-ai-log-data/           ← private repo (data only)
+berto-log-data/        ← private repo (data only)
 └── data.json          ← sessions + labels
 ```

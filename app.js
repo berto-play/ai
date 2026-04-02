@@ -164,7 +164,7 @@ function ghHeaders() {
     'Accept': 'application/vnd.github.v3+json',
   };
 }
-function ghRepo() { return localStorage.getItem('gh_repo') || 'berto-play/ai-log-data'; }
+function ghRepo() { return localStorage.getItem('gh_repo') || 'berto-play/berto-log-data'; }
 
 async function ghRead() {
   const res = await fetch(`https://api.github.com/repos/${ghRepo()}/contents/data.json`, { headers: ghHeaders() });
@@ -431,7 +431,7 @@ function viewSetup() {
         <input type="password" id="gh_token" placeholder="ghp_… (leave blank to skip)" autocomplete="off"
           onblur="prefillFromGitHub()">
         <label>Data repo</label>
-        <input type="text" id="gh_repo" value="berto-play/ai-log-data" autocomplete="off" spellcheck="false"
+        <input type="text" id="gh_repo" value="berto-play/berto-log-data" autocomplete="off" spellcheck="false"
           onblur="prefillFromGitHub()">
         <p id="restore-hint" class="field-hint success-hint hidden"></p>
 
@@ -1201,7 +1201,7 @@ function stopSpeak() {
 function viewSettings() {
   const labels    = getLabels();
   const connected = !isLocalMode();
-  const repo      = localStorage.getItem('gh_repo') || 'berto-play/ai-log-data';
+  const repo      = localStorage.getItem('gh_repo') || 'berto-play/berto-log-data';
 
   render(`
     <div class="screen setup">
@@ -1237,7 +1237,7 @@ function viewSettings() {
           <label>Personal access token</label>
           <input type="password" id="settings_token" placeholder="ghp_…" autocomplete="off">
           <label>Data repo (owner/name)</label>
-          <input type="text" id="settings_repo" value="berto-play/ai-log-data" autocomplete="off" spellcheck="false">
+          <input type="text" id="settings_repo" value="berto-play/berto-log-data" autocomplete="off" spellcheck="false">
         `}
 
         <p id="settings-msg" class="hidden" style="color:var(--green);font-size:14px;margin-top:8px">Saved.</p>
