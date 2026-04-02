@@ -17,7 +17,7 @@ A daily log tool that lets you rate observable behaviors across four subjects (D
 Three files do all the work:
 
 | File | Purpose |
-|------|---------|
+|------|----------|
 | `index.html` | Shell — one `<div id="app">`, loads CSS and JS |
 | `app.js` | All logic, all rendering (~1,300 lines) |
 | `style.css` | All styles (~1,200 lines) |
@@ -50,7 +50,7 @@ The service worker uses a **network-first** strategy:
 2. On success — update the cache, return the response
 3. On failure (offline) — return the cached version
 
-GitHub API calls are never intercepted by the service worker. The cache name (`log-v9`) is bumped on each deploy to force the browser to reinstall the worker and clear stale files.
+GitHub API calls are never intercepted by the service worker. The cache name (`log-v10`) is bumped on each deploy to force the browser to reinstall the worker and clear stale files.
 
 ---
 
@@ -61,7 +61,7 @@ GitHub API calls are never intercepted by the service worker. The cache name (`l
 All data lives in two places simultaneously:
 
 | Location | What's stored |
-|----------|--------------|
+|----------|---------------|
 | `localStorage` | PIN hash, code names (labels), GitHub credentials, current sessions, last-known GitHub SHA |
 | GitHub private repo | `data.json` — sessions array + code names (source of truth when online) |
 
@@ -165,17 +165,17 @@ All four subjects are referenced by code names you choose at setup. These are:
 - Synced to your **private** GitHub repo inside `data.json`
 - Never present in the public source code
 
-The app source code (`berto-play/ai`) is public. The data repo (`berto-play/berto-log-data`) is private. No real names appear anywhere in the public repo.
+The app source code (`berto-play/Log`) is public. The data repo (`berto-play/berto-log-data`) is private. No real names appear anywhere in the public repo.
 
 ---
 
 ## Deployment
 
-Hosted on **GitHub Pages** from the `main` branch of `berto-play/ai`. No build process — the files are served as-is.
+Hosted on **GitHub Pages** from the `main` branch of `berto-play/Log`. No build process — the files are served as-is.
 
 To deploy a change:
 1. Edit `app.js` / `style.css`
-2. Bump the cache name in `sw.js` (e.g. `log-v9` → `log-v10`) so the browser reinstalls the service worker
+2. Bump the cache name in `sw.js` (e.g. `log-v10` → `log-v11`) so the browser reinstalls the service worker
 3. Push to `main`
 4. GitHub Pages serves the updated files within ~1 minute
 
@@ -184,7 +184,7 @@ To deploy a change:
 ## File map
 
 ```
-ai/                    ← public repo (GitHub Pages)
+Log/                   ← public repo (GitHub Pages)
 ├── index.html         ← app shell
 ├── app.js             ← all logic and rendering
 ├── style.css          ← all styles
